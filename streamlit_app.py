@@ -54,8 +54,8 @@ def load_pdf_files(uploaded_files):
     retriever_tool = create_retriever_tool(
         retriever,
         name="pdf_search",
-        description="This tool gives you direct access to the uploaded PDF documents. "
-                    "Always use this tool first when the question might be answered from the PDFs."
+        description="이 도구는 업로드된 PDF 문서에 직접 접근할 수 있게 해줍니다. "
+                    "질문이 PDF에서 답변될 수 있을 때는 항상 이 도구를 먼저 사용하세요."
     )
     return retriever_tool
 
@@ -68,12 +68,11 @@ def build_agent(tools):
 
     prompt = ChatPromptTemplate.from_messages([
         ("system",
-        # 7. 여러분의 챗봇에 맞는 system message 작성하기         
-         "You are a helpful assistant for KIBO employees. "
-         "First, always try `pdf_search`. "
-         "If `pdf_search` returns no relevant results, immediately call ONLY `web_search`. "
-         "Never mix the two tools. "
-         "Answer in Korean with a professional and friendly tone, including emojis."),
+         "당신은 KIBO 직원들을 돕는 유용한 어시스턴트입니다.. "
+         "먼저, 항상 `pdf_search`를 사용하세요. "
+         "만약 `pdf_search` 에서 관련된 결과가 없다면, 즉시 'Web_search'만 호출하세요. "
+         "두 도구를 절대 섞어서 사용하지 마세요. "
+         "답변은 전문적이고 친절하게 한국어로 해주세요. 물론 이모티콘도 사용해도 됩니다."),
         ("placeholder", "{chat_history}"),
         ("human", "{input}"),
         ("placeholder", "{agent_scratchpad}")
