@@ -110,10 +110,9 @@ def main():
     # 10. 여러분의 챗봇에 맞는 스타일로 변경하기
 
     st.set_page_config(page_title="「차세대 챗봇 시스템 기반 지식공유 플랫폼」", layout="wide", page_icon="🤖")
-    #st.image('data/kibo_image.jpg', width=800)
-    st.image('image/AI.jpg', width=800)
-    st.markdown('---')
-    st.title("「차세대 챗봇 시스템 기반 지식공유 플랫폼」")   
+    st.title("「차세대 챗봇 시스템 기반 지식공유 플랫폼」")
+    st.image('image/AI.jpg', width=1000)
+    st.markdown('---')   
 
     with st.sidebar:
         openai_api = st.text_input("OPENAI API 키", type="password")
